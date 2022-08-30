@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "portmacro.h": "c",
+        "task.h": "c"
+    }
+}

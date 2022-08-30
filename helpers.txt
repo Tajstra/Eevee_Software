@@ -1,0 +1,8 @@
+sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main.c
+sources\eevee\FreeRTOSv202112.00\FreeRTOS\Source\include\FreeRTOS.h
+
+
+g++ -ISource/include -o main.exe main.c main_blinky.c
+
+g++ -IE:/Software/Eevee_Software/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Source/include -IE:/Software/Eevee_Software/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW -IE:/Software/Eevee_Software/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Source/portable/MSVC-MingW -fpermissive -o main.exe ../../Source/croutine.c ../../Source/event_groups.c ../../Source/list.c ../../Source/queue.c ../../Source/stream_buffer.c ../../Source/tasks.c ../../Source/timers.c ../../Source/portable/MSVC-MingW/port.c ../../Source/portable/MemMang/heap_5.c main.c main_blinky.c Run-time-stats-utils.c -lwinmm
+

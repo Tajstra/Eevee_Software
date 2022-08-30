@@ -68,37 +68,73 @@ include CMakeFiles/eevee_software.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/eevee_software.dir/flags.make
 
-CMakeFiles/eevee_software.dir/test/test.cpp.obj: CMakeFiles/eevee_software.dir/flags.make
-CMakeFiles/eevee_software.dir/test/test.cpp.obj: test/test.cpp
-CMakeFiles/eevee_software.dir/test/test.cpp.obj: CMakeFiles/eevee_software.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Software\Eevee_Software\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/eevee_software.dir/test/test.cpp.obj"
-	C:\Tools\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/eevee_software.dir/test/test.cpp.obj -MF CMakeFiles\eevee_software.dir\test\test.cpp.obj.d -o CMakeFiles\eevee_software.dir\test\test.cpp.obj -c E:\Software\Eevee_Software\test\test.cpp
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main.c.obj: CMakeFiles/eevee_software.dir/flags.make
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main.c.obj: CMakeFiles/eevee_software.dir/includes_C.rsp
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main.c.obj: sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main.c
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main.c.obj: CMakeFiles/eevee_software.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Software\Eevee_Software\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main.c.obj"
+	C:\Tools\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main.c.obj -MF CMakeFiles\eevee_software.dir\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main.c.obj.d -o CMakeFiles\eevee_software.dir\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main.c.obj -c E:\Software\Eevee_Software\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main.c
 
-CMakeFiles/eevee_software.dir/test/test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/eevee_software.dir/test/test.cpp.i"
-	C:\Tools\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Software\Eevee_Software\test\test.cpp > CMakeFiles\eevee_software.dir\test\test.cpp.i
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main.c.i"
+	C:\Tools\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Software\Eevee_Software\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main.c > CMakeFiles\eevee_software.dir\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main.c.i
 
-CMakeFiles/eevee_software.dir/test/test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/eevee_software.dir/test/test.cpp.s"
-	C:\Tools\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Software\Eevee_Software\test\test.cpp -o CMakeFiles\eevee_software.dir\test\test.cpp.s
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main.c.s"
+	C:\Tools\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Software\Eevee_Software\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main.c -o CMakeFiles\eevee_software.dir\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main.c.s
+
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main_blinky.c.obj: CMakeFiles/eevee_software.dir/flags.make
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main_blinky.c.obj: CMakeFiles/eevee_software.dir/includes_C.rsp
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main_blinky.c.obj: sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main_blinky.c
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main_blinky.c.obj: CMakeFiles/eevee_software.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Software\Eevee_Software\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main_blinky.c.obj"
+	C:\Tools\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main_blinky.c.obj -MF CMakeFiles\eevee_software.dir\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main_blinky.c.obj.d -o CMakeFiles\eevee_software.dir\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main_blinky.c.obj -c E:\Software\Eevee_Software\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main_blinky.c
+
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main_blinky.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main_blinky.c.i"
+	C:\Tools\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Software\Eevee_Software\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main_blinky.c > CMakeFiles\eevee_software.dir\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main_blinky.c.i
+
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main_blinky.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main_blinky.c.s"
+	C:\Tools\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Software\Eevee_Software\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main_blinky.c -o CMakeFiles\eevee_software.dir\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\main_blinky.c.s
+
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/Run-time-stats-utils.c.obj: CMakeFiles/eevee_software.dir/flags.make
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/Run-time-stats-utils.c.obj: CMakeFiles/eevee_software.dir/includes_C.rsp
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/Run-time-stats-utils.c.obj: sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/Run-time-stats-utils.c
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/Run-time-stats-utils.c.obj: CMakeFiles/eevee_software.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Software\Eevee_Software\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/Run-time-stats-utils.c.obj"
+	C:\Tools\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/Run-time-stats-utils.c.obj -MF CMakeFiles\eevee_software.dir\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\Run-time-stats-utils.c.obj.d -o CMakeFiles\eevee_software.dir\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\Run-time-stats-utils.c.obj -c E:\Software\Eevee_Software\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\Run-time-stats-utils.c
+
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/Run-time-stats-utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/Run-time-stats-utils.c.i"
+	C:\Tools\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Software\Eevee_Software\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\Run-time-stats-utils.c > CMakeFiles\eevee_software.dir\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\Run-time-stats-utils.c.i
+
+CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/Run-time-stats-utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/Run-time-stats-utils.c.s"
+	C:\Tools\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Software\Eevee_Software\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\Run-time-stats-utils.c -o CMakeFiles\eevee_software.dir\sources\eevee\FreeRTOSv202112.00\FreeRTOS\Demo\WIN32-MingW\Run-time-stats-utils.c.s
 
 # Object files for target eevee_software
 eevee_software_OBJECTS = \
-"CMakeFiles/eevee_software.dir/test/test.cpp.obj"
+"CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main.c.obj" \
+"CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main_blinky.c.obj" \
+"CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/Run-time-stats-utils.c.obj"
 
 # External object files for target eevee_software
 eevee_software_EXTERNAL_OBJECTS =
 
-eevee_software.exe: CMakeFiles/eevee_software.dir/test/test.cpp.obj
-eevee_software.exe: CMakeFiles/eevee_software.dir/build.make
-eevee_software.exe: CMakeFiles/eevee_software.dir/linklibs.rsp
-eevee_software.exe: CMakeFiles/eevee_software.dir/objects1.rsp
-eevee_software.exe: CMakeFiles/eevee_software.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\Software\Eevee_Software\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable eevee_software.exe"
+release/eevee_software.exe: CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main.c.obj
+release/eevee_software.exe: CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/main_blinky.c.obj
+release/eevee_software.exe: CMakeFiles/eevee_software.dir/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW/Run-time-stats-utils.c.obj
+release/eevee_software.exe: CMakeFiles/eevee_software.dir/build.make
+release/eevee_software.exe: libfree_rtos.a
+release/eevee_software.exe: CMakeFiles/eevee_software.dir/linklibs.rsp
+release/eevee_software.exe: CMakeFiles/eevee_software.dir/objects1.rsp
+release/eevee_software.exe: CMakeFiles/eevee_software.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\Software\Eevee_Software\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable release\eevee_software.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\eevee_software.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/eevee_software.dir/build: eevee_software.exe
+CMakeFiles/eevee_software.dir/build: release/eevee_software.exe
 .PHONY : CMakeFiles/eevee_software.dir/build
 
 CMakeFiles/eevee_software.dir/clean:

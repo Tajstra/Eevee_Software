@@ -48,5 +48,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/free_rtos.dir/DependInfo.cmake"
   "CMakeFiles/eevee_software.dir/DependInfo.cmake"
   )
