@@ -1,6 +1,23 @@
 {
     "files.associations": {
         "portmacro.h": "c",
-        "task.h": "c"
-    }
+        "task.h": "c",
+        "main.h": "c",
+        "usart.h": "c",
+        "gpio.h": "c",
+        "conio.h": "c",
+        "stdlib.h": "c",
+        "compare": "c",
+        "stm32f4xx_hal.h": "c",
+        "stm32f4xx_hal_conf.h": "c",
+        "stm32f4xx_hal_def.h": "c",
+        "stm32f4xx.h": "c",
+        "stm32_hal_legacy.h": "c",
+        "stddef.h": "c",
+        "freertos.h": "c",
+        "stm32f4xx_hal_gpio.h": "c"
+    },
+    "cortex-debug.gdbPath": "C:\\Tools\\arm-gnu-toolchain-11_3\\bin\\arm-none-eabi-gdb",
+    "cortex-debug.stutilPath": "C:\\Tools\\STMicroelectronics\\stlink-1.7.0-x86_64-w64-mingw32\\bin\\st-util",
+    "cortex-debug.variableUseNaturalFormat": false,
 }

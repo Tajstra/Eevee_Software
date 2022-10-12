@@ -1,56 +1,41 @@
 cmake_minimum_required(VERSION 3.13)
-project(eevee_software)
+project(eevee_software CXX C ASM)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/release)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/release/${TARGET})
 
-cmake_path(SET free_rtos_source "${CMAKE_SOURCE_DIR}/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Source")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Og -g -gdwarf-2 -fno-exceptions")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Og -gdwarf-2 -g")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
 
-add_library(free_rtos
-    STATIC
-    ${free_rtos_source}/croutine.c 
-    ${free_rtos_source}/event_groups.c 
-    ${free_rtos_source}/list.c 
-    ${free_rtos_source}/queue.c 
-    ${free_rtos_source}/stream_buffer.c 
-    ${free_rtos_source}/tasks.c 
-    ${free_rtos_source}/timers.c 
-    ${free_rtos_source}/portable/MSVC-MingW/port.c
-    ${free_rtos_source}/portable/MemMang/heap_5.c)
+add_executable(eevee_software "")
 
-cmake_path(SET demo_windows_source "${CMAKE_SOURCE_DIR}/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW")
+add_library(free_rtos STATIC "")
+include(cmake/freertos.cmake)
 
-add_executable(eevee_software
-    ${demo_windows_source}/main.c
-    ${demo_windows_source}/main_blinky.c
-    ${demo_windows_source}/Run-time-stats-utils.c)
+if("${TARGET}" STREQUAL "SIM")
+  add_subdirectory(sources/sim)
+  message(STATUS "Subdirectory sources/sim added")
+elseif("${TARGET}" STREQUAL "MCAL")
+  add_subdirectory(sources/mcal)
+  message(STATUS "Subdirectory sources/mcal added")
+elseif("${TARGET}" STREQUAL "")
+  message(SEND_ERROR "Please specify the target using '-DTARGET=target'")
+else()
+  message(SEND_ERROR "Target '${TARGET}' does not exist")
+endif()
 
-list(APPEND
-    free_rtos_flags
-    "-fpermissive")
 
-target_compile_options(free_rtos
-    PRIVATE
-    ${free_rtos_flags})
+# list(APPEND free_rtos_flags "-fpermissive")
 
-target_include_directories(free_rtos
-    PRIVATE
-    "${free_rtos_source}/include"
-    "${free_rtos_source}/portable/MSVC-MingW"
-    "${demo_windows_source}")
+# target_compile_options(free_rtos PRIVATE ${free_rtos_flags})
 
-list(APPEND
-    demo_flags
-    "-fpermissive")
+# list(APPEND demo_flags "-fpermissive")
 
-target_compile_options(eevee_software
-    PRIVATE
-    ${demo_flags})
+# target_compile_options(eevee_software PRIVATE ${demo_flags})
 
-target_include_directories(eevee_software
-    PRIVATE
-    "${free_rtos_source}/include"
-    "${free_rtos_source}/portable/MSVC-MingW"
-    "${demo_windows_source}")
+target_include_directories(
+  eevee_software PRIVATE "${free_rtos_source}/include")
 
-target_link_libraries(eevee_software free_rtos -lwinmm)
+target_link_libraries(eevee_software free_rtos)

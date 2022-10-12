@@ -6,3 +6,45 @@ g++ -ISource/include -o main.exe main.c main_blinky.c
 
 g++ -IE:/Software/Eevee_Software/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Source/include -IE:/Software/Eevee_Software/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW -IE:/Software/Eevee_Software/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Source/portable/MSVC-MingW -fpermissive -o main.exe ../../Source/croutine.c ../../Source/event_groups.c ../../Source/list.c ../../Source/queue.c ../../Source/stream_buffer.c ../../Source/tasks.c ../../Source/timers.c ../../Source/portable/MSVC-MingW/port.c ../../Source/portable/MemMang/heap_5.c main.c main_blinky.c Run-time-stats-utils.c -lwinmm
 
+g++ 
+-IE:/Software/Eevee_Software/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Source/include 
+-IE:/Software/Eevee_Software/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Demo/WIN32-MingW
+-IE:/Software/Eevee_Software/sources/eevee/FreeRTOSv202112.00/FreeRTOS/Source/portable/MSVC-MingW 
+-fpermissive 
+-o 
+main.exe 
+../../Source/croutine.c 
+../../Source/event_groups.c 
+../../Source/list.c 
+../../Source/queue.c 
+../../Source/stream_buffer.c 
+../../Source/tasks.c 
+../../Source/timers.c 
+../../Source/portable/MSVC-MingW/port.c 
+../../Source/portable/MemMang/heap_5.c 
+main.c 
+main_blinky.c 
+Run-time-stats-utils.c 
+-lwinmm
+
+
+
+mkdir -p build
+
+arm-none-eabi-g++ -mcpu=cortex-m4 -g -O1 -I../../Source/include -I../../Demo/CORTEX_M4F_STM32F407ZG-SK -I../../Source/portable/GCC/ARM_CM4F -I../../Demo/CORTEX_M4F_STM32F407ZG-SK/Libraries/CMSIS/Device/ST/STM32F4xx/Include -I../../Demo/Common/include -I../../Demo/CORTEX_M4F_STM32F407ZG-SK/board -fpermissive -o main ../../Source/croutine.c ../../Source/event_groups.c ../../Source/list.c ../../Source/queue.c ../../Source/stream_buffer.c ../../Source/tasks.c ../../Source/timers.c ../../Source/portable/MemMang/heap_5.c ../../Source/portable/GCC/ARM_CM4F/port.c ../../Demo/CORTEX_M4F_STM32F407ZG-SK/startup/system_stm32f4xx.c main.c
+
+
+
+cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=arm-none-eabi-g++ -DCMAKE_TRY_COMPILE_TARGET_TYPE=STATIC_LIBRARY -DCMAKE_SYSTEM_NAME=Generic ..
+
+cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=arm-none-eabi-g++ --toolchain=../toolchain-arm-gcc.cmake ..
+
+cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=arm-none-eabi-g++ --toolchain=../cmake/toolchain-stm32f411-gcc ..
+
+cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=arm-none-eabi-g++ --toolchain=../../cmake/toolchain-stm32f411-gcc.cmake -DTARGET=MCAL ../..
+
+arm-none-eabi-objcopy -O ihex blinky.elf blinky.hex
+arm-none-eabi-objcopy -O binary eevee_software.elf eevee_software.bin
+
+st-flash write build/Auto_generated_stm32.bin 0x8000000
+st-flash write eevee_software.bin 0x8000000
