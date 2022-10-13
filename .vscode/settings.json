@@ -15,7 +15,11 @@
         "stm32_hal_legacy.h": "c",
         "stddef.h": "c",
         "freertos.h": "c",
-        "stm32f4xx_hal_gpio.h": "c"
+        "stm32f4xx_hal_gpio.h": "c",
+        "system_stm32f4xx.h": "c",
+        "core_cm4.h": "c",
+        "winapifamily.h": "c",
+        "cstdint": "cpp"
     },
     "cortex-debug.gdbPath": "C:\\Tools\\arm-gnu-toolchain-11_3\\bin\\arm-none-eabi-gdb",
     "cortex-debug.stutilPath": "C:\\Tools\\STMicroelectronics\\stlink-1.7.0-x86_64-w64-mingw32\\bin\\st-util",
