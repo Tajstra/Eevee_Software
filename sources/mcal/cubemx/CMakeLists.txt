@@ -1,5 +1,5 @@
 target_sources(
-  eevee_software
+  ${EXECUTABLE_NAME}
   PRIVATE
   # "Core/Src/gpio.c " "Core/Src/usart.c " 
   "Core/Src/stm32f4xx_it.c "
@@ -24,7 +24,7 @@ target_sources(
 )
 
 target_include_directories(
-  eevee_software
+  ${EXECUTABLE_NAME}
   PRIVATE "Core/Inc" "Drivers/STM32F4xx_HAL_Driver/Inc"
           "Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"
           "Drivers/CMSIS/Device/ST/STM32F4xx/Include" "Drivers/CMSIS/Include")

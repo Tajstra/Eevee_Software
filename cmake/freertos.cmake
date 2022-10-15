@@ -15,4 +15,4 @@ target_sources(
 
 target_include_directories(
   free_rtos PRIVATE "${free_rtos_source}/include")
-target_include_directories(eevee_software PRIVATE "${free_rtos_source}/include")
+target_include_directories(${EXECUTABLE_NAME} PRIVATE "${free_rtos_source}/include")
