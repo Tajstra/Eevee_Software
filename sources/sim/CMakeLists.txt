@@ -2,8 +2,7 @@ target_sources(free_rtos PRIVATE "port_files/port.c")
 
 target_include_directories(free_rtos PRIVATE "port_files")
 
-target_sources(eevee_software PRIVATE "main.c" "main_blinky.cpp"
-                                      "hal_mock/stm32f4xx_hal_gpio.cpp")
+target_sources(eevee_software PRIVATE "hal_mock/stm32f4xx_hal_gpio.cpp")
 
 target_include_directories(
   eevee_software

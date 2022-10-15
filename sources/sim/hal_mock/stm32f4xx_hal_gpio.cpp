@@ -98,7 +98,7 @@ void HAL_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIO_PinState Pin
  */
 void HAL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 {
-  std::cout << "GPIO PIN " << GPIO_Pin << " toggled." << std::endl;
+  std::cout << GPIOx->port_name << " PIN " << GPIO_Pin << " toggled." << std::endl;
 }
 
 /**

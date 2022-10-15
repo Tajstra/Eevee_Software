@@ -9,7 +9,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Og -gdwarf-2 -g")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
 
-add_executable(eevee_software "")
+add_executable(eevee_software "sources/app/main.cpp")
+add_subdirectory(sources/eevee)
 
 add_library(free_rtos STATIC "")
 include(cmake/freertos.cmake)
