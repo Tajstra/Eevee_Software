@@ -94,6 +94,35 @@ void vApplicationGetTimerTaskMemory(StaticTask_t **ppxTimerTaskTCBBuffer, StackT
     *pulTimerTaskStackSize = configTIMER_TASK_STACK_DEPTH;
 }
 
+void vAssertCalled( unsigned long ulLine, const char * const pcFileName )
+{
+static BaseType_t xPrinted = pdFALSE;
+volatile uint32_t ulSetToNonZeroInDebuggerToContinue = 0;
+
+	/* Called if an assertion passed to configASSERT() fails.  See
+	http://www.freertos.org/a00110.html#configASSERT for more information. */
+
+	/* Parameters are not used. */
+	( void ) ulLine;
+	( void ) pcFileName;
+
+
+ 	taskENTER_CRITICAL();
+	{
+
+		/* You can step out of this function to debug the assertion by using
+		the debugger to set ulSetToNonZeroInDebuggerToContinue to a non-zero
+		value. */
+        // printf("Assert failed\n");
+		while( ulSetToNonZeroInDebuggerToContinue == 0 )
+		{
+			__asm volatile( "NOP" );
+			__asm volatile( "NOP" );
+		}
+	}
+	taskEXIT_CRITICAL();
+}
+
 void vApplicationStackOverflowHook(TaskHandle_t pxTask, char *pcTaskName)
 {
     (void)pcTaskName;
@@ -104,7 +133,8 @@ void vApplicationStackOverflowHook(TaskHandle_t pxTask, char *pcTaskName)
     function is called if a stack overflow is detected.  This function is
     provided as an example only as stack overflow checking does not function
     when running the FreeRTOS Windows port. */
-    configASSERT(0u);
+	vAssertCalled( __LINE__, __FILE__ );
+    // configASSERT(0u);
 }
 
 void vApplicationMallocFailedHook(void)
@@ -121,5 +151,6 @@ void vApplicationMallocFailedHook(void)
     (although it does not provide information on how the remaining heap might be
     fragmented).  See http://www.freertos.org/a00111.html for more
     information. */
-    configASSERT(0u);
+    // configASSERT(0u);
+	vAssertCalled( __LINE__, __FILE__ );
 }

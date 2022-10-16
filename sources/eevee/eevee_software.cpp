@@ -23,19 +23,11 @@ milliseconds to ticks using the pdMS_TO_TICKS() macro. */
 #define eeveeTASK_1000MS pdMS_TO_TICKS(1000UL)
 #define eeveeTASK_100MS pdMS_TO_TICKS(100UL)
 
-/* The number of items the queue can hold at once. */
-#define mainQUEUE_LENGTH (2)
-
-/* The values sent to the queue receive task from the queue send task and the
-queue send software timer respectively. */
-#define mainVALUE_SENT_FROM_TASK (100UL)
-#define mainVALUE_SENT_FROM_TIMER (200UL)
-
 EeveeSoftware::EeveeSoftware()
 {
 }
 
-void EeveeSoftware::start(taskHookType task_hook_1000ms, taskHookType task_hook_100ms)
+void EeveeSoftware::start(TaskHookType task_hook_1000ms, TaskHookType task_hook_100ms)
 {
     xTaskCreate(task_1000ms,
                 "Task 1000ms",
@@ -64,9 +56,8 @@ void EeveeSoftware::task_1000ms(void *taskHookRaw)
 {
     TickType_t xNextWakeTime;
     const TickType_t xBlockTime = eeveeTASK_1000MS;
-    const uint32_t ulValueToSend = mainVALUE_SENT_FROM_TASK;
 
-    taskHookType taskHook = reinterpret_cast<taskHookType>(taskHookRaw);
+    TaskHookType taskHook = reinterpret_cast<TaskHookType>(taskHookRaw);
 
     /* Initialise xNextWakeTime - this only needs to be done once. */
     xNextWakeTime = xTaskGetTickCount();
@@ -82,9 +73,8 @@ void EeveeSoftware::task_100ms(void *taskHookRaw)
 {
     TickType_t xNextWakeTime;
     const TickType_t xBlockTime = eeveeTASK_100MS;
-    const uint32_t ulValueToSend = mainVALUE_SENT_FROM_TASK;
 
-    taskHookType taskHook = reinterpret_cast<taskHookType>(taskHookRaw);
+    TaskHookType taskHook = reinterpret_cast<TaskHookType>(taskHookRaw);
 
     /* Initialise xNextWakeTime - this only needs to be done once. */
     xNextWakeTime = xTaskGetTickCount();
@@ -94,4 +84,9 @@ void EeveeSoftware::task_100ms(void *taskHookRaw)
         taskHook();
         vTaskDelayUntil(&xNextWakeTime, xBlockTime);
     }
+}
+
+float EeveeSoftware::getSimTime() const
+{
+    return static_cast<float>(xTaskGetTickCount() / configTICK_RATE_HZ);
 }

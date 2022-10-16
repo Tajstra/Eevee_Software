@@ -10,18 +10,25 @@
 // Description: Main header file of the eevee software
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+#pragma once
+
 class EeveeSoftware
 {
 public:
-    using taskHookType = void (*)(void);
+    using TaskHookType = void (*)(void);
 
     EeveeSoftware();
 
     void
-    start(taskHookType task_hook_1000ms, taskHookType task_hook_100ms);
+    start(TaskHookType task_hook_1000ms, TaskHookType task_hook_100ms);
+
+    void
+    shutDown();
+
+    float getSimTime() const;
 
 private:
-    static void task_1000ms(void * taskHookRaw);
+    static void task_1000ms(void *taskHookRaw);
 
-    static void task_100ms(void * taskHookRaw);
+    static void task_100ms(void *taskHookRaw);
 };

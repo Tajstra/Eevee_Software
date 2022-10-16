@@ -1,20 +1,17 @@
 
 #include "stm32f4xx_hal.h"
-#include <iostream>
-
-// #ifdef HAL_GPIO_MODULE_ENABLED
 
 #define GPIO_NUMBER 16U
 
 GPIO_Ports g_gpio_ports{};
 
 // Defines to mock pointers to GPIO
-GPIO_TypeDef * GPIOA = &g_gpio_ports.gpio_a_instance;
-GPIO_TypeDef * GPIOB = &g_gpio_ports.gpio_b_instance;
-GPIO_TypeDef * GPIOC = &g_gpio_ports.gpio_c_instance;
-GPIO_TypeDef * GPIOD = &g_gpio_ports.gpio_d_instance;
-GPIO_TypeDef * GPIOE = &g_gpio_ports.gpio_e_instance;
-GPIO_TypeDef * GPIOH = &g_gpio_ports.gpio_f_instance;
+GPIO_TypeDef *GPIOA = &g_gpio_ports.gpio_a_instance;
+GPIO_TypeDef *GPIOB = &g_gpio_ports.gpio_b_instance;
+GPIO_TypeDef *GPIOC = &g_gpio_ports.gpio_c_instance;
+GPIO_TypeDef *GPIOD = &g_gpio_ports.gpio_d_instance;
+GPIO_TypeDef *GPIOE = &g_gpio_ports.gpio_e_instance;
+GPIO_TypeDef *GPIOH = &g_gpio_ports.gpio_f_instance;
 
 /**
  * @brief  Initializes the GPIOx peripheral according to the specified parameters in the GPIO_Init.
@@ -25,8 +22,7 @@ GPIO_TypeDef * GPIOH = &g_gpio_ports.gpio_f_instance;
  * @retval None
  */
 void HAL_GPIO_Init(GPIO_TypeDef *GPIOx, GPIO_InitTypeDef *GPIO_Init)
-{
-}
+{}
 
 /**
  * @brief  De-initializes the GPIOx peripheral registers to their default reset values.
@@ -98,7 +94,19 @@ void HAL_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIO_PinState Pin
  */
 void HAL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 {
-  std::cout << GPIOx->port_name << " PIN " << GPIO_Pin << " toggled." << std::endl;
+  uint32_t odr;
+
+  /* Check the parameters */
+  assert(IS_GPIO_PIN(GPIO_Pin));
+
+  /* get current Output Data Register value */
+  odr = GPIOx->ODR;
+
+  /* Set selected pins that were at low level, and reset ones that were high */
+  GPIOx->BSRR = ((odr & GPIO_Pin) << GPIO_NUMBER) | (~odr & GPIO_Pin);
+
+  // Simulate that CPU writes to ODR from BSRR:
+  GPIOx->ODR = GPIOx->BSRR;
 }
 
 /**

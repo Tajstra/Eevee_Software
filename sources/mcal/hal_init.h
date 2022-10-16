@@ -96,7 +96,7 @@ static void GPIO_Init(void)
 
 // Public functions:
 
-void HAL_initialize()
+void systemInit()
 {
 	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
 	HAL_Init();
