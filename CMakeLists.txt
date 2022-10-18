@@ -11,20 +11,22 @@ add_executable(${EXECUTABLE_NAME} "")
 
 target_include_directories(${EXECUTABLE_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/sources/app")
 
-if(NOT "${TARGET}" STREQUAL "UNIT_TEST")
+set(APPLICATION_BASED_TARGET ${TARGET} STREQUAL "SIM" OR ${TARGET} STREQUAL "MCAL")
+
+if(${APPLICATION_BASED_TARGET})
   # Add main of the project:
-  target_sources(${EXECUTABLE_NAME} PRIVATE "tests/integration_tests/main.cpp" "sources/app/application_software.cpp")#"sources/app/main.cpp" "sources/app/application_software.cpp")
+  target_sources(${EXECUTABLE_NAME} PRIVATE "sources/app/application_software.cpp")
   # Add common directories and libraries for system targets:
-  add_subdirectory(sources/eevee)
+  add_subdirectory(${CMAKE_SOURCE_DIR}/sources/eevee)
   add_library(free_rtos STATIC "")
-  include(cmake/freertos.cmake)
+  include(${CMAKE_SOURCE_DIR}/cmake/freertos.cmake)
   target_link_libraries(${EXECUTABLE_NAME} free_rtos)
 endif()
 
 if(${TARGET} STREQUAL "SIM")
-  add_subdirectory(sources/sim)
   add_subdirectory(tests/integration_tests)
-  message(STATUS "Subdirectory sources/sim added")
+  add_subdirectory(sources/sim)
+message(STATUS "Subdirectory sources/sim added")
 elseif(${TARGET} STREQUAL "MCAL")
   add_subdirectory(sources/mcal)
   message(STATUS "Subdirectory sources/mcal added")

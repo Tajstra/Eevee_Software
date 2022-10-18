@@ -80,7 +80,9 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp",
-        "cassert": "c"
+        "cassert": "c",
+        "stm32f4xx_hal_gpio_ex.h": "c",
+        "stm32f411xe.h": "c"
     },
     "cortex-debug.gdbPath": "C:\\Tools\\arm-gnu-toolchain-11_3\\bin\\arm-none-eabi-gdb",
     "cortex-debug.stutilPath": "C:\\Tools\\STMicroelectronics\\stlink-1.7.0-x86_64-w64-mingw32\\bin\\st-util",

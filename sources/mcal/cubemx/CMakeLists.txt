@@ -2,7 +2,7 @@ target_sources(
   ${EXECUTABLE_NAME}
   PRIVATE
   # "Core/Src/gpio.c " "Core/Src/usart.c " 
-  "Core/Src/stm32f4xx_it.c "
+  # "Core/Src/stm32f4xx_it.c "
   "Core/Src/stm32f4xx_hal_msp.c "
   "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c "
   "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c "

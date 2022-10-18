@@ -1,3 +1,6 @@
+# Add main fail for application
+target_sources(${EXECUTABLE_NAME} PRIVATE "../../sources/app/main.cpp")
+
 target_sources(free_rtos PRIVATE "port_files/port.c")
 
 target_include_directories(free_rtos PRIVATE "port_files")

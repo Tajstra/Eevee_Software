@@ -8,6 +8,10 @@ target_include_directories(
   ${EXECUTABLE_NAME}
   PRIVATE "port_files"
           # Includes for HAL mock:
-          "hal_mock")
+          "../mcal/cubemx/Drivers/STM32F4xx_HAL_Driver/Inc"
+          "../mcal/cubemx/Core/Inc"
+          "../mcal/cubemx/Drivers/CMSIS/Device/ST/STM32F4xx/Include"
+          "hal_mock"
+          "hal_mock/Legacy")
 
 target_link_libraries(free_rtos -lwinmm)

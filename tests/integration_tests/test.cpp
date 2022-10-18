@@ -2,7 +2,6 @@
 #include <iostream>
 #include <ctime>
 // TODO: Delete from here (provide a better interface)
-#include "stm32f4xx_hal_gpio.h"
 
 class SomeTest : public SimulatedIntegrationTest
 {
@@ -32,13 +31,13 @@ TEST_F(SomeTest, Test)
   float sim_time_start = std::clock();
 
   bool prev = false;
-  while((std::clock() - sim_time_start) < 10000)
+  // while((std::clock() - sim_time_start) < 10000)
   {
-    if(prev != static_cast<bool>(GPIOD->ODR & GPIO_PIN_12))
-    {
-      std::cout << "GPIO toogled!\n";
-      prev = (GPIOD->ODR & GPIO_PIN_12);
-    }
+    // if(prev != static_cast<bool>(GPIOD->ODR & GPIO_PIN_12))
+    // {
+    //   std::cout << "GPIO toogled!\n";
+    //   prev = (GPIOD->ODR & GPIO_PIN_12);
+    // }
   }
 
   // while((GPIOD->ODR & GPIO_PIN_12))

@@ -1,17 +1,8 @@
 
-#include "stm32f4xx_hal.h"
+#include "hal_mock_common.h"
+#include "stm32f4xx_hal_gpio.h"
 
-#define GPIO_NUMBER 16U
-
-GPIO_Ports g_gpio_ports{};
-
-// Defines to mock pointers to GPIO
-GPIO_TypeDef *GPIOA = &g_gpio_ports.gpio_a_instance;
-GPIO_TypeDef *GPIOB = &g_gpio_ports.gpio_b_instance;
-GPIO_TypeDef *GPIOC = &g_gpio_ports.gpio_c_instance;
-GPIO_TypeDef *GPIOD = &g_gpio_ports.gpio_d_instance;
-GPIO_TypeDef *GPIOE = &g_gpio_ports.gpio_e_instance;
-GPIO_TypeDef *GPIOH = &g_gpio_ports.gpio_f_instance;
+#define GPIO_NUMBER           16U
 
 /**
  * @brief  Initializes the GPIOx peripheral according to the specified parameters in the GPIO_Init.
@@ -22,7 +13,8 @@ GPIO_TypeDef *GPIOH = &g_gpio_ports.gpio_f_instance;
  * @retval None
  */
 void HAL_GPIO_Init(GPIO_TypeDef *GPIOx, GPIO_InitTypeDef *GPIO_Init)
-{}
+{
+}
 
 /**
  * @brief  De-initializes the GPIOx peripheral registers to their default reset values.
@@ -97,7 +89,7 @@ void HAL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
   uint32_t odr;
 
   /* Check the parameters */
-  assert(IS_GPIO_PIN(GPIO_Pin));
+  assert_param(IS_GPIO_PIN(GPIO_Pin));
 
   /* get current Output Data Register value */
   odr = GPIOx->ODR;
