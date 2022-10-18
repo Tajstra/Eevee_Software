@@ -2,4 +2,4 @@
 
 #define __IO volatile
 
-// HAL stub
+// Stub

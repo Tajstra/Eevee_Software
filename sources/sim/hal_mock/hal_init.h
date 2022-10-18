@@ -2,6 +2,15 @@
 
 #include "hal_mock_common.h"
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+#include "stm32f4xx_hal.h"
+#ifdef __cplusplus
+} // extern "C"
+#endif
+
 GPIO_TypeDef g_gpio_port_a_instance{};
 GPIO_TypeDef g_gpio_port_b_instance{};
 GPIO_TypeDef g_gpio_port_c_instance{};

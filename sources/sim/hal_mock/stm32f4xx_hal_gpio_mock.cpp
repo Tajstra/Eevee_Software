@@ -1,59 +1,56 @@
 
 #include "hal_mock_common.h"
-#include "stm32f4xx_hal_gpio.h"
+#include "stm32f4xx_hal.h"
 
-#define GPIO_NUMBER           16U
+#define GPIO_NUMBER 16U
 
 /**
- * @brief  Initializes the GPIOx peripheral according to the specified parameters in the GPIO_Init.
- * @param  GPIOx where x can be (A..K) to select the GPIO peripheral for STM32F429X device or
- *                      x can be (A..I) to select the GPIO peripheral for STM32F40XX and STM32F427X devices.
- * @param  GPIO_Init pointer to a GPIO_InitTypeDef structure that contains
- *         the configuration information for the specified GPIO peripheral.
- * @retval None
+ * @brief Function is mocking behaviour of stm32f4xx_hal_gpio.c HAL_GPIO_Init() function to some extend
+ *
+ * @param GPIOx
+ * @param GPIO_Init
  */
 void HAL_GPIO_Init(GPIO_TypeDef *GPIOx, GPIO_InitTypeDef *GPIO_Init)
 {
+  (void)GPIOx;
+  (void)GPIO_Init;
 }
 
 /**
- * @brief  De-initializes the GPIOx peripheral registers to their default reset values.
- * @param  GPIOx where x can be (A..K) to select the GPIO peripheral for STM32F429X device or
- *                      x can be (A..I) to select the GPIO peripheral for STM32F40XX and STM32F427X devices.
- * @param  GPIO_Pin specifies the port bit to be written.
- *          This parameter can be one of GPIO_PIN_x where x can be (0..15).
- * @retval None
+ * @brief Function is mocking behaviour of stm32f4xx_hal_gpio.c HAL_GPIO_DeInit() function to some extend
+ *
+ * @param GPIOx
+ * @param GPIO_Pin
  */
 void HAL_GPIO_DeInit(GPIO_TypeDef *GPIOx, uint32_t GPIO_Pin)
 {
+  (void)GPIOx;
+  (void)GPIO_Pin;
 }
 
 /**
- * @}
- */
-
-/** @defgroup GPIO_Exported_Functions_Group2 IO operation functions
-  *  @brief   GPIO Read and Write
-  *
-@verbatim
- ===============================================================================
-                       ##### IO operation functions #####
- ===============================================================================
-
-@endverbatim
-  * @{
-  */
-
-/**
- * @brief  Reads the specified input port pin.
- * @param  GPIOx where x can be (A..K) to select the GPIO peripheral for STM32F429X device or
- *                      x can be (A..I) to select the GPIO peripheral for STM32F40XX and STM32F427X devices.
- * @param  GPIO_Pin specifies the port bit to read.
- *         This parameter can be GPIO_PIN_x where x can be (0..15).
- * @retval The input port pin value.
+ * @brief Function is mocking behaviour of stm32f4xx_hal_gpio.c HAL_GPIO_ReadPin() function to some extend
+ *
+ * @param GPIOx
+ * @param GPIO_Pin
+ * @return GPIO_PinState
  */
 GPIO_PinState HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
 {
+  GPIO_PinState bitstatus;
+
+  /* Check the parameters */
+  assert_param(IS_GPIO_PIN(GPIO_Pin));
+
+  if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)GPIO_PIN_RESET)
+  {
+    bitstatus = GPIO_PIN_SET;
+  }
+  else
+  {
+    bitstatus = GPIO_PIN_RESET;
+  }
+  return bitstatus;
 }
 
 /**
