@@ -9,13 +9,24 @@ include(cmake/common_flags.cmake)
 set(EXECUTABLE_NAME "Eevee_sotware_${TARGET}_${BUILD_TYPE}")
 add_executable(${EXECUTABLE_NAME} "")
 
-target_include_directories(${EXECUTABLE_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/sources/app")
+target_include_directories(
+  ${EXECUTABLE_NAME}
+  PRIVATE ${CMAKE_SOURCE_DIR}/sources ${CMAKE_SOURCE_DIR}/sources/app
+          ${CMAKE_SOURCE_DIR}/libraries)
 
-set(APPLICATION_BASED_TARGET ${TARGET} STREQUAL "SIM" OR ${TARGET} STREQUAL "MCAL")
+set(APPLICATION_BASED_TARGET
+    ${TARGET}
+    STREQUAL
+    "SIM"
+    OR
+    ${TARGET}
+    STREQUAL
+    "MCAL")
 
 if(${APPLICATION_BASED_TARGET})
   # Add main of the project:
-  target_sources(${EXECUTABLE_NAME} PRIVATE "sources/app/application_software.cpp")
+  target_sources(${EXECUTABLE_NAME}
+                 PRIVATE "sources/app/application_software.cpp")
   # Add common directories and libraries for system targets:
   add_subdirectory(${CMAKE_SOURCE_DIR}/sources/eevee)
   add_library(free_rtos STATIC "")
@@ -26,7 +37,7 @@ endif()
 if(${TARGET} STREQUAL "SIM")
   add_subdirectory(tests/integration_tests)
   add_subdirectory(sources/sim)
-message(STATUS "Subdirectory sources/sim added")
+  message(STATUS "Subdirectory sources/sim added")
 elseif(${TARGET} STREQUAL "MCAL")
   add_subdirectory(sources/mcal)
   message(STATUS "Subdirectory sources/mcal added")
