@@ -24,37 +24,39 @@ milliseconds to ticks using the pdMS_TO_TICKS() macro. */
 #define eeveeTASK_100MS pdMS_TO_TICKS(100UL)
 
 EeveeSoftware::EeveeSoftware()
-{
-}
+{}
 
-void EeveeSoftware::start(TaskHookType task_hook_1000ms, TaskHookType task_hook_100ms)
+void
+EeveeSoftware::start(TaskHookType task_hook_1000ms, TaskHookType task_hook_100ms)
 {
-    xTaskCreate(task_1000ms,
-                "Task 1000ms",
-                configMINIMAL_STACK_SIZE,
-                reinterpret_cast<void *>(task_hook_1000ms),
-                eeveeTASK_PRIORITY_1000MS,
-                NULL);
+    xTaskCreate(
+        task_1000ms,
+        "Task 1000ms",
+        configMINIMAL_STACK_SIZE,
+        reinterpret_cast<void *>(task_hook_1000ms),
+        eeveeTASK_PRIORITY_1000MS,
+        NULL);
 
-    xTaskCreate(task_100ms,
-                "Task 100ms",
-                configMINIMAL_STACK_SIZE,
-                reinterpret_cast<void *>(task_hook_100ms),
-                eeveeTASK_PRIORITY_100MS,
-                NULL);
+    xTaskCreate(
+        task_100ms,
+        "Task 100ms",
+        configMINIMAL_STACK_SIZE,
+        reinterpret_cast<void *>(task_hook_100ms),
+        eeveeTASK_PRIORITY_100MS,
+        NULL);
 
     /* Start the tasks and timer running. */
     vTaskStartScheduler();
 
     // Not expected to get there:
     while (true)
-    {
-    }
+    {}
 }
 
-void EeveeSoftware::task_1000ms(void *taskHookRaw)
+void
+EeveeSoftware::task_1000ms(void * taskHookRaw)
 {
-    TickType_t xNextWakeTime;
+    TickType_t       xNextWakeTime;
     const TickType_t xBlockTime = eeveeTASK_1000MS;
 
     TaskHookType taskHook = reinterpret_cast<TaskHookType>(taskHookRaw);
@@ -69,9 +71,10 @@ void EeveeSoftware::task_1000ms(void *taskHookRaw)
     }
 }
 
-void EeveeSoftware::task_100ms(void *taskHookRaw)
+void
+EeveeSoftware::task_100ms(void * taskHookRaw)
 {
-    TickType_t xNextWakeTime;
+    TickType_t       xNextWakeTime;
     const TickType_t xBlockTime = eeveeTASK_100MS;
 
     TaskHookType taskHook = reinterpret_cast<TaskHookType>(taskHookRaw);
@@ -86,7 +89,8 @@ void EeveeSoftware::task_100ms(void *taskHookRaw)
     }
 }
 
-float EeveeSoftware::getSimTime() const
+float
+EeveeSoftware::getSimTime() const
 {
     return static_cast<float>(xTaskGetTickCount() / configTICK_RATE_HZ);
 }

@@ -10,10 +10,11 @@
  * @param GPIOx
  * @param GPIO_Init
  */
-void HAL_GPIO_Init(GPIO_TypeDef *GPIOx, GPIO_InitTypeDef *GPIO_Init)
+void
+HAL_GPIO_Init(GPIO_TypeDef * GPIOx, GPIO_InitTypeDef * GPIO_Init)
 {
-  (void)GPIOx;
-  (void)GPIO_Init;
+    (void)GPIOx;
+    (void)GPIO_Init;
 }
 
 /**
@@ -22,10 +23,11 @@ void HAL_GPIO_Init(GPIO_TypeDef *GPIOx, GPIO_InitTypeDef *GPIO_Init)
  * @param GPIOx
  * @param GPIO_Pin
  */
-void HAL_GPIO_DeInit(GPIO_TypeDef *GPIOx, uint32_t GPIO_Pin)
+void
+HAL_GPIO_DeInit(GPIO_TypeDef * GPIOx, uint32_t GPIO_Pin)
 {
-  (void)GPIOx;
-  (void)GPIO_Pin;
+    (void)GPIOx;
+    (void)GPIO_Pin;
 }
 
 /**
@@ -35,22 +37,23 @@ void HAL_GPIO_DeInit(GPIO_TypeDef *GPIOx, uint32_t GPIO_Pin)
  * @param GPIO_Pin
  * @return GPIO_PinState
  */
-GPIO_PinState HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+GPIO_PinState
+HAL_GPIO_ReadPin(GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin)
 {
-  GPIO_PinState bitstatus;
+    GPIO_PinState bitstatus;
 
-  /* Check the parameters */
-  assert_param(IS_GPIO_PIN(GPIO_Pin));
+    /* Check the parameters */
+    assert_param(IS_GPIO_PIN(GPIO_Pin));
 
-  if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)GPIO_PIN_RESET)
-  {
-    bitstatus = GPIO_PIN_SET;
-  }
-  else
-  {
-    bitstatus = GPIO_PIN_RESET;
-  }
-  return bitstatus;
+    if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)GPIO_PIN_RESET)
+    {
+        bitstatus = GPIO_PIN_SET;
+    }
+    else
+    {
+        bitstatus = GPIO_PIN_RESET;
+    }
+    return bitstatus;
 }
 
 /**
@@ -70,9 +73,9 @@ GPIO_PinState HAL_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
  *            @arg GPIO_PIN_SET: to set the port pin
  * @retval None
  */
-void HAL_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIO_PinState PinState)
-{
-}
+void
+HAL_GPIO_WritePin(GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin, GPIO_PinState PinState)
+{}
 
 /**
  * @brief  Toggles the specified GPIO pins.
@@ -81,21 +84,22 @@ void HAL_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIO_PinState Pin
  * @param  GPIO_Pin Specifies the pins to be toggled.
  * @retval None
  */
-void HAL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+void
+HAL_GPIO_TogglePin(GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin)
 {
-  uint32_t odr;
+    uint32_t odr;
 
-  /* Check the parameters */
-  assert_param(IS_GPIO_PIN(GPIO_Pin));
+    /* Check the parameters */
+    assert_param(IS_GPIO_PIN(GPIO_Pin));
 
-  /* get current Output Data Register value */
-  odr = GPIOx->ODR;
+    /* get current Output Data Register value */
+    odr = GPIOx->ODR;
 
-  /* Set selected pins that were at low level, and reset ones that were high */
-  GPIOx->BSRR = ((odr & GPIO_Pin) << GPIO_NUMBER) | (~odr & GPIO_Pin);
+    /* Set selected pins that were at low level, and reset ones that were high */
+    GPIOx->BSRR = ((odr & GPIO_Pin) << GPIO_NUMBER) | (~odr & GPIO_Pin);
 
-  // Simulate that CPU writes to ODR from BSRR:
-  GPIOx->ODR = GPIOx->BSRR;
+    // Simulate that CPU writes to ODR from BSRR:
+    GPIOx->ODR = GPIOx->BSRR;
 }
 
 /**
@@ -109,24 +113,24 @@ void HAL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
  *         This parameter can be any combination of GPIO_PIN_x where x can be (0..15).
  * @retval None
  */
-HAL_StatusTypeDef HAL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
-{
-}
+HAL_StatusTypeDef
+HAL_GPIO_LockPin(GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin)
+{}
 
 /**
  * @brief  This function handles EXTI interrupt request.
  * @param  GPIO_Pin Specifies the pins connected EXTI line
  * @retval None
  */
-void HAL_GPIO_EXTI_IRQHandler(uint16_t GPIO_Pin)
-{
-}
+void
+HAL_GPIO_EXTI_IRQHandler(uint16_t GPIO_Pin)
+{}
 
 /**
  * @brief  EXTI line detection callbacks.
  * @param  GPIO_Pin Specifies the pins connected EXTI line
  * @retval None
  */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-}
+void
+HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{}

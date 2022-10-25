@@ -13,13 +13,17 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize)
+void
+vApplicationGetIdleTaskMemory(
+    StaticTask_t ** ppxIdleTaskTCBBuffer,
+    StackType_t **  ppxIdleTaskStackBuffer,
+    uint32_t *      pulIdleTaskStackSize)
 {
     /* If the buffers to be provided to the Idle task are declared inside this
     function then they must be declared static - otherwise they will be allocated on
     the stack and so not exists after this function exits. */
     static StaticTask_t xIdleTaskTCB;
-    static StackType_t uxIdleTaskStack[configMINIMAL_STACK_SIZE];
+    static StackType_t  uxIdleTaskStack[configMINIMAL_STACK_SIZE];
 
     /* Pass out a pointer to the StaticTask_t structure in which the Idle task's
     state will be stored. */
@@ -34,7 +38,8 @@ void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackTyp
     *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
 }
 
-void vApplicationIdleHook(void)
+void
+vApplicationIdleHook(void)
 {
     /* vApplicationIdleHook() will only be called if configUSE_IDLE_HOOK is set
     to 1 in FreeRTOSConfig.h.  It will be called on each iteration of the idle
@@ -47,7 +52,8 @@ void vApplicationIdleHook(void)
     allocated by the kernel to any task that has since deleted itself. */
 }
 
-void vApplicationTickHook(void)
+void
+vApplicationTickHook(void)
 {
     /* This function will be called by each tick interrupt if
     configUSE_TICK_HOOK is set to 1 in FreeRTOSConfig.h.  User code can be
@@ -56,7 +62,8 @@ void vApplicationTickHook(void)
     functions can be used (those that end in FromISR()). */
 }
 
-void vApplicationDaemonTaskStartupHook(void)
+void
+vApplicationDaemonTaskStartupHook(void)
 {
     /* This function will be called once only, when the daemon task starts to
     execute	(sometimes called the timer task).  This is useful if the
@@ -74,7 +81,11 @@ StackType_t uxTimerTaskStack[configTIMER_TASK_STACK_DEPTH];
 /* configUSE_STATIC_ALLOCATION and configUSE_TIMERS are both set to 1, so the
 application must provide an implementation of vApplicationGetTimerTaskMemory()
 to provide the memory that is used by the Timer service task. */
-void vApplicationGetTimerTaskMemory(StaticTask_t **ppxTimerTaskTCBBuffer, StackType_t **ppxTimerTaskStackBuffer, uint32_t *pulTimerTaskStackSize)
+void
+vApplicationGetTimerTaskMemory(
+    StaticTask_t ** ppxTimerTaskTCBBuffer,
+    StackType_t **  ppxTimerTaskStackBuffer,
+    uint32_t *      pulTimerTaskStackSize)
 {
     /* If the buffers to be provided to the Timer task are declared inside this
     function then they must be declared static - otherwise they will be allocated on
@@ -94,36 +105,38 @@ void vApplicationGetTimerTaskMemory(StaticTask_t **ppxTimerTaskTCBBuffer, StackT
     *pulTimerTaskStackSize = configTIMER_TASK_STACK_DEPTH;
 }
 
-void vAssertCalled( unsigned long ulLine, const char * const pcFileName )
+void
+vAssertCalled(unsigned long ulLine, const char * const pcFileName)
 {
-static BaseType_t xPrinted = pdFALSE;
-volatile uint32_t ulSetToNonZeroInDebuggerToContinue = 0;
+    static BaseType_t xPrinted                           = pdFALSE;
+    volatile uint32_t ulSetToNonZeroInDebuggerToContinue = 0;
 
-	/* Called if an assertion passed to configASSERT() fails.  See
+    /* Called if an assertion passed to configASSERT() fails.  See
 	http://www.freertos.org/a00110.html#configASSERT for more information. */
 
-	/* Parameters are not used. */
-	( void ) ulLine;
-	( void ) pcFileName;
+    /* Parameters are not used. */
+    (void)ulLine;
+    (void)pcFileName;
 
 
- 	taskENTER_CRITICAL();
-	{
+    taskENTER_CRITICAL();
+    {
 
-		/* You can step out of this function to debug the assertion by using
+        /* You can step out of this function to debug the assertion by using
 		the debugger to set ulSetToNonZeroInDebuggerToContinue to a non-zero
 		value. */
         // printf("Assert failed\n");
-		while( ulSetToNonZeroInDebuggerToContinue == 0 )
-		{
-			__asm volatile( "NOP" );
-			__asm volatile( "NOP" );
-		}
-	}
-	taskEXIT_CRITICAL();
+        while (ulSetToNonZeroInDebuggerToContinue == 0)
+        {
+            __asm volatile("NOP");
+            __asm volatile("NOP");
+        }
+    }
+    taskEXIT_CRITICAL();
 }
 
-void vApplicationStackOverflowHook(TaskHandle_t pxTask, char *pcTaskName)
+void
+vApplicationStackOverflowHook(TaskHandle_t pxTask, char * pcTaskName)
 {
     (void)pcTaskName;
     (void)pxTask;
@@ -133,11 +146,12 @@ void vApplicationStackOverflowHook(TaskHandle_t pxTask, char *pcTaskName)
     function is called if a stack overflow is detected.  This function is
     provided as an example only as stack overflow checking does not function
     when running the FreeRTOS Windows port. */
-	vAssertCalled( __LINE__, __FILE__ );
+    vAssertCalled(__LINE__, __FILE__);
     // configASSERT(0u);
 }
 
-void vApplicationMallocFailedHook(void)
+void
+vApplicationMallocFailedHook(void)
 {
     /* vApplicationMallocFailedHook() will only be called if
     configUSE_MALLOC_FAILED_HOOK is set to 1 in FreeRTOSConfig.h.  It is a hook
@@ -152,5 +166,5 @@ void vApplicationMallocFailedHook(void)
     fragmented).  See http://www.freertos.org/a00111.html for more
     information. */
     // configASSERT(0u);
-	vAssertCalled( __LINE__, __FILE__ );
+    vAssertCalled(__LINE__, __FILE__);
 }

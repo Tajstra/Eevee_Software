@@ -4,24 +4,28 @@
 class ApplicationSoftware
 {
 public:
-	ApplicationSoftware();
+    ApplicationSoftware();
 
-	void initialize();
+    void
+    initialize();
 
-	void print()
-	{
-		// std::cout << "Application software print" << std::endl;
-	}
+    void
+    print()
+    {
+        // std::cout << "Application software print" << std::endl;
+    }
 
-	float
-	getSimTime() const
-	{
-		return eevee_software.getSimTime();
-	}
+    float
+    getSimTime() const
+    {
+        return eevee_software.getSimTime();
+    }
 
 private:
-	static void update_1000ms();
-	static void update_100ms();
+    static void
+    update_1000ms();
+    static void
+    update_100ms();
 
-	EeveeSoftware eevee_software{};
+    EeveeSoftware eevee_software {};
 };

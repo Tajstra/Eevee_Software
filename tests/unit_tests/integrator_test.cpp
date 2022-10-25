@@ -3,13 +3,13 @@
 
 TEST(IntegratorTest, Test)
 {
-    Time::s const sample_time = 1e-3f;
+    Time::s const            sample_time = 1e-3f;
     eevee::Integrator<float> integrator {sample_time};
 
     integrator(1.0f);
 
     EXPECT_FLOAT_EQ(integrator.getValue(), 1.0f * sample_time);
-    
+
     auto const prev_value = integrator.getValue();
     integrator(198572.5f);
 

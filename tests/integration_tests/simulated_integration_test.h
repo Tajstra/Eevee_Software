@@ -9,10 +9,10 @@ class SimulatedIntegrationTest : public ::testing::Test
 {
 public:
     SimulatedIntegrationTest()
-    {
-    }
+    {}
 
-    static void integrationTestTask(void *parameters)
+    static void
+    integrationTestTask(void * parameters)
     {
         (void)parameters;
         unsigned result = RUN_ALL_TESTS();
@@ -21,16 +21,18 @@ public:
     }
 
 protected:
-    virtual void SetUp() override
-    {
-    }
+    virtual void
+    SetUp() override
+    {}
 
-    static void SetUpTestSuite()
+    static void
+    SetUpTestSuite()
     {
         // application_software.initialize();
     }
 
-    static void TearDownTestSuite()
+    static void
+    TearDownTestSuite()
     {
         // vTaskEndScheduler();
     }

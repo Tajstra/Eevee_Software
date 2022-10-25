@@ -1,9 +1,10 @@
 #include "application_software.h"
 
-int main()
+int
+main()
 {
-	ApplicationSoftware application_software{};
-	application_software.initialize();
+    ApplicationSoftware application_software {};
+    application_software.initialize();
 
-	return 0;
+    return 0;
 }

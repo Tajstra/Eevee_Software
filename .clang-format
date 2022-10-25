@@ -1,0 +1,149 @@
+# Clang-Format configuration file
+# Supported version: Clang 6
+# See: https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+
+BasedOnStyle: Google
+
+AccessModifierOffset: -4
+
+AlignAfterOpenBracket: AlwaysBreak
+
+AlignConsecutiveAssignments: true
+
+AlignConsecutiveDeclarations: true
+
+AlignEscapedNewlines: Left
+
+AlignOperands: true
+
+AlignTrailingComments: true
+
+AllowAllParametersOfDeclarationOnNextLine: false
+
+AllowShortBlocksOnASingleLine: false
+
+AllowShortCaseLabelsOnASingleLine: false
+
+AllowShortFunctionsOnASingleLine: None
+
+AllowShortIfStatementsOnASingleLine: false
+
+AllowShortLoopsOnASingleLine: false
+
+AlwaysBreakAfterReturnType: All
+
+AlwaysBreakBeforeMultilineStrings: false
+
+BinPackArguments: false
+
+BinPackParameters: false
+
+BraceWrapping:
+
+    AfterClass: true
+    AfterControlStatement: true
+    AfterEnum: true
+    AfterFunction: true
+    AfterNamespace: true
+    AfterObjCDeclaration: true
+    AfterStruct: true
+    AfterUnion: true
+    BeforeCatch: true
+    BeforeElse: true
+    SplitEmptyFunction: false
+
+BreakBeforeBinaryOperators: None
+
+#The way to wrap binary operators.
+
+BreakBeforeBraces: Custom
+
+BreakBeforeInheritanceComma: false
+
+BreakBeforeTernaryOperators: false
+
+BreakConstructorInitializers: AfterColon
+
+BreakStringLiterals: false
+
+ColumnLimit: 126
+
+#CommentPragmas : (std::string)
+
+CompactNamespaces : false
+
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+
+ConstructorInitializerIndentWidth: 4
+
+ContinuationIndentWidth: 4
+
+Cpp11BracedListStyle: true
+
+DerivePointerAlignment: false
+
+FixNamespaceComments: true
+
+#ForEachMacros : (std::vector <std::string>)
+
+IndentCaseLabels: true
+
+IndentWidth: 4
+
+IndentWrappedFunctionNames: false
+
+KeepEmptyLinesAtTheStartOfBlocks: true
+
+Language: Cpp
+
+MaxEmptyLinesToKeep: 2
+
+NamespaceIndentation: None
+
+PenaltyBreakBeforeFirstCallParameter: 0
+
+PenaltyBreakComment: 9999
+
+PenaltyBreakFirstLessLess: 0
+
+PenaltyBreakString: 0
+
+PenaltyExcessCharacter: 99
+
+PenaltyReturnTypeOnItsOwnLine: 0
+
+PointerAlignment: Middle
+
+ReflowComments: false
+
+SortIncludes: false
+
+SpaceAfterCStyleCast: false
+
+SpaceAfterTemplateKeyword: true
+
+SpaceBeforeAssignmentOperators: true
+
+SpaceBeforeCpp11BracedList: true
+
+SpaceBeforeParens: ControlStatements
+
+SpaceInEmptyParentheses: false
+
+SpacesBeforeTrailingComments: 3
+
+SpacesInAngles: false
+
+SpacesInCStyleCastParentheses: false
+
+SpacesInContainerLiterals: false
+
+SpacesInParentheses: false
+
+SpacesInSquareBrackets: false
+
+Standard: Auto
+
+TabWidth: 4
+
+UseTab: Never

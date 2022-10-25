@@ -16,35 +16,34 @@
 
 namespace eevee
 {
-    template <typename Tin, typename Tout = Tin>
-    class Integrator
+template <typename Tin, typename Tout = Tin>
+class Integrator
+{
+public:
+    Integrator(Time::s const sample_time) : _sample_time(sample_time)
+    {}
+
+    Tout const &
+    operator()(Tin const & input)
     {
-    public:
-        Integrator(Time::s const sample_time) : _sample_time(sample_time)
-        {
-        }
+        _state += input * _sample_time;
+        return _state;
+    }
 
-        Tout const &
-        operator()(Tin const &input)
-        {
-            _state += input * _sample_time;
-            return _state;
-        }
+    void
+    reset()
+    {
+        _state = Tout();
+    }
 
-        void
-        reset()
-        {
-            _state = Tout();
-        }
+    Tout const &
+    getValue() const
+    {
+        return _state;
+    }
 
-        Tout const &
-        getValue() const
-        {
-            return _state;
-        }
-
-    private:
-        Time::s const _sample_time;
-        Tout _state{};
-    };
-} // namespace eevee
+private:
+    Time::s const _sample_time;
+    Tout          _state {};
+};
+}   // namespace eevee

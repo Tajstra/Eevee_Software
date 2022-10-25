@@ -3,22 +3,21 @@
 #include "hal_mock_common.h"
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
 #include "stm32f4xx_hal.h"
 #ifdef __cplusplus
-} // extern "C"
+}   // extern "C"
 #endif
 
-GPIO_TypeDef g_gpio_port_a_instance{};
-GPIO_TypeDef g_gpio_port_b_instance{};
-GPIO_TypeDef g_gpio_port_c_instance{};
-GPIO_TypeDef g_gpio_port_d_instance{};
-GPIO_TypeDef g_gpio_port_e_instance{};
-GPIO_TypeDef g_gpio_port_f_instance{};
-GPIO_TypeDef g_gpio_port_g_instance{};
-GPIO_TypeDef g_gpio_port_h_instance{};
+GPIO_TypeDef g_gpio_port_a_instance {};
+GPIO_TypeDef g_gpio_port_b_instance {};
+GPIO_TypeDef g_gpio_port_c_instance {};
+GPIO_TypeDef g_gpio_port_d_instance {};
+GPIO_TypeDef g_gpio_port_e_instance {};
+GPIO_TypeDef g_gpio_port_f_instance {};
+GPIO_TypeDef g_gpio_port_g_instance {};
+GPIO_TypeDef g_gpio_port_h_instance {};
 
 // Defines to mock pointers to GPIO
 #define GPIOA &g_gpio_port_a_instance
@@ -32,7 +31,8 @@ GPIO_TypeDef g_gpio_port_h_instance{};
 
 
 // Public functions:
-void systemInit()
+void
+systemInit()
 {
-	// std::cout << "Inititalizing HAL" << std::endl;
+    // std::cout << "Inititalizing HAL" << std::endl;
 }

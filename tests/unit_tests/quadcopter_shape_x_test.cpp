@@ -5,5 +5,5 @@
 TEST(QuadcopterShapeX_Test, Test)
 {
     sim::QuadcopterShapeX quadcopter {1e-3f};
-    quadcopter.update({0,0,0,0});
+    quadcopter.update({0, 0, 0, 0});
 }

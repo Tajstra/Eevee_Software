@@ -16,9 +16,9 @@ using Real = float;
 
 namespace Time
 {
-    using us = Real;
-    using ms = Real;
-    using s = Real;
-    using m = Real;
-    using h = Real;
-}
+using us = Real;
+using ms = Real;
+using s  = Real;
+using m  = Real;
+using h  = Real;
+}   // namespace Time

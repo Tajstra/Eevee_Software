@@ -25,10 +25,13 @@ public:
     void
     shutDown();
 
-    float getSimTime() const;
+    float
+    getSimTime() const;
 
 private:
-    static void task_1000ms(void *taskHookRaw);
+    static void
+    task_1000ms(void * taskHookRaw);
 
-    static void task_100ms(void *taskHookRaw);
+    static void
+    task_100ms(void * taskHookRaw);
 };
