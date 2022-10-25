@@ -103,5 +103,5 @@
     "cortex-debug.gdbPath": "C:\\Tools\\arm-gnu-toolchain-11_3\\bin\\arm-none-eabi-gdb",
     "cortex-debug.stutilPath": "C:\\Tools\\STMicroelectronics\\stlink-1.7.0-x86_64-w64-mingw32\\bin\\st-util",
     "cortex-debug.variableUseNaturalFormat": false,
-    // "editor.formatOnSave": true
+    "editor.formatOnSave": true
 }
