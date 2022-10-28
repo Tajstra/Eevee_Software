@@ -49,8 +49,8 @@ EeveeSoftware::start(TaskHookType task_hook_1000ms, TaskHookType task_hook_100ms
     vTaskStartScheduler();
 
     // Not expected to get there:
-    while (true)
-    {}
+    // while (true)
+    // {}
 }
 
 void

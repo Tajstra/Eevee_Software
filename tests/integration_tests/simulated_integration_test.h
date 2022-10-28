@@ -11,15 +11,6 @@ public:
     SimulatedIntegrationTest()
     {}
 
-    static void
-    integrationTestTask(void * parameters)
-    {
-        (void)parameters;
-        unsigned result = RUN_ALL_TESTS();
-        // Terminate scheduler when tests are over:
-        exit(result);
-    }
-
 protected:
     virtual void
     SetUp() override
@@ -36,6 +27,9 @@ protected:
     {
         // vTaskEndScheduler();
     }
+
+    void
+    executeSystick();
 
     static ApplicationSoftware &
     appSoftware()

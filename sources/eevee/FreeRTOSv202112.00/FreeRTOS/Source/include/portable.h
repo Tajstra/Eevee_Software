@@ -198,6 +198,7 @@ BaseType_t xPortStartScheduler( void ) PRIVILEGED_FUNCTION;
  * executing.
  */
 void vPortEndScheduler( void ) PRIVILEGED_FUNCTION;
+void prvProcessSimulatedInterrupts(void);
 
 /*
  * The structures and methods of manipulating the MPU are contained within the

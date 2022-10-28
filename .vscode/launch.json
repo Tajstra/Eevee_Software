@@ -5,9 +5,9 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "STlink launch",
+            "name": "(gdb) STlink launch",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/release/MCAL/eevee_software.elf",
+            "executable": "${workspaceRoot}/release/MCAL/Eevee_sotware_MCAL_Debug.elf",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "stutil",
@@ -20,9 +20,9 @@
             "swoConfig": {} // currently (v1.7.0) not supported
         },
         {
-            "name": "STlink attach",
+            "name": "(gdb) STlink attach",
             "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/release/MCAL/eevee_software.elf",
+            "executable": "${workspaceRoot}/release/MCAL/Eevee_sotware_MCAL_Debug.elf",
             "request": "attach",
             "type": "cortex-debug",
             "servertype": "stutil",
@@ -35,7 +35,7 @@
             "swoConfig": {} // currently (v1.7.0) not supported
         },
         {
-            "name": "(gdb) Launch",
+            "name": "(gdb) SIM launch",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceRoot}/release/SIM/Eevee_sotware_SIM_Debug.exe",

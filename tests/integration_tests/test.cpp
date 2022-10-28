@@ -27,31 +27,9 @@ protected:
 TEST_F(SomeTest, Test)
 {
     EXPECT_EQ(1, 1);
-    appSoftware().print();
-
-    float sim_time_start = std::clock();
-
-    bool prev = false;
-    // while((std::clock() - sim_time_start) < 10000)
+    for (volatile unsigned i = 0; i < 10000000u; ++i)
     {
-        // if(prev != static_cast<bool>(GPIOD->ODR & GPIO_PIN_12))
-        // {
-        //   std::cout << "GPIO toogled!\n";
-        //   prev = (GPIOD->ODR & GPIO_PIN_12);
-        // }
+        executeSystick();
     }
-
-    // while((GPIOD->ODR & GPIO_PIN_12))
-    // {
-    //   std::cout << "Simulation time: " << (std::clock() - sim_time_start) / CLOCKS_PER_SEC  << std::endl;
-    // }
-
-    // EXPECT_FALSE(GPIOD->ODR & GPIO_PIN_12);
-
-    // while(!(GPIOD->ODR & GPIO_PIN_12))
-    // {
-    //   std::cout << "Simulation time: " << (std::clock() - sim_time_start) / CLOCKS_PER_SEC  << std::endl;
-    // }
-
-    // EXPECT_FALSE(GPIOD->ODR & GPIO_PIN_12);
+    EXPECT_EQ(1, 1);
 }

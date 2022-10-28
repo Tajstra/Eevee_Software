@@ -43,8 +43,8 @@ cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=arm-none-eabi-g++ --toolchain=..
 
 cmake -G "MinGW Makefiles" -DCMAKE_CXX_COMPILER=arm-none-eabi-g++ --toolchain=../../cmake/toolchain-stm32f411-gcc.cmake -DTARGET=MCAL ../..
 
-arm-none-eabi-objcopy -O ihex blinky.elf blinky.hex
-arm-none-eabi-objcopy -O binary eevee_software.elf eevee_software.bin
+arm-none-eabi-objcopy -O ihex Eevee_sotware_MCAL_Debug.elf Eevee_sotware_MCAL_Debug.hex
+arm-none-eabi-objcopy -O binary Eevee_sotware_MCAL_Debug.elf Eevee_sotware_MCAL_Debug.bin
 
 st-flash write build/Auto_generated_stm32.bin 0x8000000
-st-flash write eevee_software.bin 0x8000000
+st-flash write Eevee_sotware_MCAL_Debug.bin 0x8000000

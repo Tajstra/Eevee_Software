@@ -1,6 +1,7 @@
 
 #include "hal_mock_common.h"
 #include "stm32f4xx_hal.h"
+#include <iostream>
 
 #define GPIO_NUMBER 16U
 
@@ -100,6 +101,8 @@ HAL_GPIO_TogglePin(GPIO_TypeDef * GPIOx, uint16_t GPIO_Pin)
 
     // Simulate that CPU writes to ODR from BSRR:
     GPIOx->ODR = GPIOx->BSRR;
+
+    std::cout << "GPIO toggled" << std::endl;
 }
 
 /**
