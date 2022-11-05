@@ -15,7 +15,7 @@ LoggerCsv &
 LoggerCsv::operator<<(std::string const & col_name)
 {
     assert(!m_header_finished);
-    m_csv_file << col_name << ",";
+    m_csv_file << col_name << ";";
     col_num++;
     return *this;
 }

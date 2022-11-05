@@ -27,17 +27,14 @@ public:
             m_csv_file << "\n";
         }
 
-        m_csv_file << signal;
+        m_csv_file << signal << ';';
 
         if (col_count >= col_num)
         {
             m_csv_file << "\n";
             col_count = 0;
         }
-        else
-        {
-            m_csv_file << ",";
-        }
+
         return *this;
     }
 
