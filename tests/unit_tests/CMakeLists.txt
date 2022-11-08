@@ -7,4 +7,4 @@ target_sources(
           "../utils/logger_csv.cpp"
           "logger_csv_test.cpp")
 
-target_link_libraries(${EXECUTABLE_NAME} -lgtest -lgtest_main)# matplotlib_cpp)
+target_link_libraries(${EXECUTABLE_NAME} -lgtest -lgtest_main)
