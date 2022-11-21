@@ -74,7 +74,7 @@ typedef uint32_t TickType_t;
 
 
 extern volatile BaseType_t xInsideInterrupt;
-#define portSOFTWARE_BARRIER() while (xInsideInterrupt != pdFALSE)
+#define portSOFTWARE_BARRIER() while (0)//(xInsideInterrupt != pdFALSE)
 
 
 /* Simulated interrupts return pdFALSE if no context switch should be performed,

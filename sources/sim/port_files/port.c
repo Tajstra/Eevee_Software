@@ -78,12 +78,12 @@ to a thread handle. */
 typedef struct
 {
     /* Handle of the thread that executes the task. */
-    void * pvThread;
+    TaskFunction_t pvThread;
 
     /* Event used to make sure the thread does not execute past a yield point
 	between the call to SuspendThread() to suspend the thread and the
 	asynchronous SuspendThread() operation actually being performed. */
-    void * pvYieldEvent;
+    void * pvParameters;
 } ThreadState_t;
 
 /* Simulated interrupts waiting to be processed.  This is a bit mask where each
@@ -136,6 +136,8 @@ pxPortInitialiseStack(StackType_t * pxTopOfStack, TaskFunction_t pxCode, void * 
 	other than holding this structure. */
     pxThreadState = (ThreadState_t *)(pcTopOfStack - sizeof(ThreadState_t));
 
+    pxThreadState->pvThread     = pxCode;
+    pxThreadState->pvParameters = pvParameters;
     configASSERT(pxThreadState->pvThread); /* See comment where TerminateThread() is called. */
 
     return (StackType_t *)pxThreadState;
@@ -198,6 +200,9 @@ prvProcessSimulatedInterrupts(void)
 		necessitated a context switch to another task/thread. */
     ulSwitchRequired = prvProcessTickInterrupt();
 
+    pxThreadState = (ThreadState_t *)(*(size_t *)pxCurrentTCB);
+    pxThreadState->pvThread(pxThreadState->pvParameters);
+
     if (ulSwitchRequired != pdFALSE)
     {
         void * pvOldCurrentTCB;
@@ -206,7 +211,23 @@ prvProcessSimulatedInterrupts(void)
 
         /* Select the next task to run. */
         vTaskSwitchContext();
-        listGET_OWNER_OF_NEXT_ENTRY( pxCurrentTCB, &( pxReadyTasksLists[ uxTopPriority ] ) );   \
+
+        /* If the task selected to enter the running state is not the task
+			that is already in the running state. */
+        // if (pvOldCurrentTCB != pxCurrentTCB)
+        // {
+        pxThreadState = (ThreadState_t *)*((size_t *)pvOldCurrentTCB);
+        // pxThreadState->pvThread(pxThreadState->pvParameters);
+
+        /* Obtain the state of the task now selected to enter the
+				Running state. */
+        pxThreadState = (ThreadState_t *)(*(size_t *)pxCurrentTCB);
+        pxThreadState->pvThread(pxThreadState->pvParameters);
+
+        /* pxThreadState->pvThread can be NULL if the task deleted
+				itself - but a deleted task should never be resumed here. */
+        configASSERT(pxThreadState->pvThread != NULL);
+        // }
     }
 }
 /*-----------------------------------------------------------*/

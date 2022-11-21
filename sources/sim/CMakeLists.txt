@@ -1,4 +1,4 @@
-# target_sources(free_rtos PRIVATE "port_files/port.c")
+target_sources(free_rtos PRIVATE "port_files/port.c")
 
 target_include_directories(free_rtos PRIVATE "port_files")
 
